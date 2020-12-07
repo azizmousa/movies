@@ -13,8 +13,7 @@ private:
 
 public:
     //Movie constructors
-    Movie();
-    Movie(std::string name, Rate rating);
+    Movie(std::string name = "movie", Rate rating = Rate::G);
     //movie distructor
     ~Movie();
 

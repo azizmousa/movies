@@ -15,8 +15,6 @@ public:
     //constructors
     Movies();
     Movies(MoviesList *moviesList);
-    Movies(const Movies &movies); 
-    Movies(const Movies &&movies);
 
     //distructor
     ~Movies();

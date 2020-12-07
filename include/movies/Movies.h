@@ -29,7 +29,7 @@ public:
     bool insertMovie(Movie movie);
     bool deleteMovie(std::string name);
     bool incrementWatchedCount(std::string name);
-    void displayMovies();
+    void displayMovies()const;
 };
 
 #endif

@@ -14,7 +14,7 @@ private:
 public:
     static const std::string EMPTY_MOVIE;
     //Movie constructors
-    Movie(std::string name = EMPTY_MOVIE, Rate rating = Rate::NUN);
+    Movie(std::string name = EMPTY_MOVIE, Rate rating = Rate::NUN, int watchedTimes = 0);
     //movie distructor
     ~Movie();
 

@@ -29,8 +29,7 @@ bool Movies::insertMovie(std::string name, Rate rating){
 void Movies::displayMovies() const{
     std::cout << "=====================================================" << std::endl;
     for(MoviesList::iterator it{moviesList->begin()}; it != this->moviesList->end(); it++){
-        std::cout << "Mvoie Name: " <<it->second.getName() << "\tMovie Rate: " << it->second.getRating() 
-            << "\tWatched Times: " << it->second.getWatchedTimes() << std::endl; 
+        it->second.display();
     }
     std::cout << "=====================================================" << std::endl;
 }

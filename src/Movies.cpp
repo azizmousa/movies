@@ -2,10 +2,21 @@
 #include "movies/Movies.h"
 
 //constructors
-Movies::Movies(MoviesList *moviesList)
-    : moviesList{nullptr}{
-        this->moviesList = moviesList;
+
+/* bad move to do this becase it will make a shallow copy of my moviesList this will cause a crashes
+// Movies::Movies(MoviesList *moviesList)
+//     : moviesList{nullptr}{
+//         this->moviesList = moviesList;
+// }
+*/
+Movies::Movies(const MoviesList &moviesList)
+    : Movies(){
+        for(MoviesList::const_iterator it{moviesList.begin()}; it != moviesList.end();++it){
+            this->moviesList->insert(std::pair<std::string, Movie>{it->first, it->second});
+        }
 }
+
+
 
 Movies::Movies(){
     this->moviesList = new MoviesList{};
@@ -14,6 +25,12 @@ Movies::Movies(){
 //distructor
 Movies::~Movies(){
     delete this->moviesList;
+    std::cout << "the pointer(" << this->moviesList << ") was deleted" << std::endl;
+}
+
+/* movies list getter*/
+MoviesList *Movies::getMoviesList()const{
+    return this->moviesList;
 }
 
 //insert new movie using the object
@@ -33,7 +50,7 @@ bool Movies::insertMovie(std::string name, Rate rating, int watchedTimes){
 //diplay the movies list
 void Movies::displayMovies() const{
     std::cout << "=====================================================" << std::endl;
-    for(MoviesList::iterator it{moviesList->begin()}; it != this->moviesList->end(); it++){
+    for(MoviesList::iterator it{this->moviesList->begin()}; it != this->moviesList->end(); it++){
         it->second.display();
     }
     std::cout << "=====================================================" << std::endl;

@@ -14,13 +14,13 @@ private:
 public:
     //constructors
     Movies();
-    Movies(MoviesList *moviesList);
+    Movies(const MoviesList &moviesList);
 
     //distructor
     ~Movies();
 
     //getters
-    MoviesList getMoviesList()const;
+    MoviesList *getMoviesList()const;
 
     //setters
     void setMoviesList(MoviesList *MoviesList);

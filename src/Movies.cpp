@@ -16,7 +16,15 @@ Movies::Movies(const MoviesList &moviesList)
         }
 }
 
-
+/*
+ * Copy constructor for deep copy of the Movies Object
+ * 
+*/
+Movies::Movies(const Movies &moviesSource): Movies(){
+    for(MoviesList::const_iterator it{moviesSource.getMoviesList()->begin()}; it != moviesSource.getMoviesList()->end();++it){
+        this->moviesList->insert(std::pair<std::string, Movie>{it->first, it->second});
+    }
+}
 
 Movies::Movies(){
     this->moviesList = new MoviesList{};
@@ -25,7 +33,6 @@ Movies::Movies(){
 //distructor
 Movies::~Movies(){
     delete this->moviesList;
-    std::cout << "the pointer(" << this->moviesList << ") was deleted" << std::endl;
 }
 
 /* movies list getter*/

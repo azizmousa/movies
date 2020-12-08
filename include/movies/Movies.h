@@ -16,6 +16,9 @@ public:
     Movies();
     Movies(const MoviesList &moviesList);
 
+    //copy constructor
+    Movies(const Movies &movies);
+
     //distructor
     ~Movies();
 

@@ -51,7 +51,7 @@ int main() {
     add_movie(my_movies,"Cinderella", Rate::PG,7);           // OK
      
     my_movies.displayMovies();   // Big, Star Wars, Cinderella
-    
+
     add_movie(my_movies,"Cinderella", Rate::PG,7);            // Already exists
     add_movie(my_movies,"Ice Age", Rate::PG,12);              // OK
  

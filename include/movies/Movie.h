@@ -28,6 +28,7 @@ public:
 
     // movie methods
     void incrementWatchedTimes();
+    void display()const;
 };
 
 #endif

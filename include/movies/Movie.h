@@ -3,7 +3,7 @@
 
 #include <string>
 
-enum Rate : int{G, PG, PG_13, R};
+enum Rate : int{NUN, G, PG, PG_13, R};
 
 class Movie{
 private:
@@ -12,8 +12,9 @@ private:
     int watchedTimes;
 
 public:
+    static const std::string EMPTY_MOVIE;
     //Movie constructors
-    Movie(std::string name = "movie", Rate rating = Rate::G);
+    Movie(std::string name = EMPTY_MOVIE, Rate rating = Rate::NUN);
     //movie distructor
     ~Movie();
 

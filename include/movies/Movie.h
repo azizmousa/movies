@@ -24,6 +24,7 @@ public:
     int getWatchedTimes()const {return this->watchedTimes;}
     void setName(std::string name){this->name = name;}
     void setRating(Rate rating){this->rating = rating;}
+    void setWatchedTimes(int watchedTimes){this->watchedTimes = watchedTimes;}
 
     // movie methods
     void incrementWatchedTimes();

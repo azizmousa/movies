@@ -29,7 +29,8 @@ bool Movies::insertMovie(std::string name, Rate rating){
 void Movies::displayMovies() const{
     std::cout << "=====================================================" << std::endl;
     for(MoviesList::iterator it{moviesList->begin()}; it != this->moviesList->end(); it++){
-        std::cout << "Mvoie Name: " <<it->second.getName() << "\t" << "Movie Rate: " << it->second.getRating() << std::endl; 
+        std::cout << "Mvoie Name: " <<it->second.getName() << "\tMovie Rate: " << it->second.getRating() 
+            << "\tWatched Times: " << it->second.getWatchedTimes() << std::endl; 
     }
     std::cout << "=====================================================" << std::endl;
 }
@@ -38,5 +39,12 @@ bool Movies::deleteMovie(std::string name){
     if(this->moviesList->find(name)->first != name)
         return false;
     this->moviesList->erase(name);
+    return true;
+}
+
+bool Movies::incrementWatchedCount(std::string name){
+    if(this->moviesList->find(name)->first != name)
+        return false;
+    this->moviesList->find(name)->second.incrementWatchedTimes();
     return true;
 }

@@ -27,7 +27,7 @@ public:
 
     //Movies Methods
     bool insertMovie(Movie movie);
-    bool insertMovie(std::string name, Rate rating);
+    bool insertMovie(std::string name = Movie::EMPTY_MOVIE, Rate rating = Rate::NUN, int watchedTimes = 0);
     bool deleteMovie(std::string name);
     bool incrementWatchedCount(std::string name);
     void displayMovies()const;
